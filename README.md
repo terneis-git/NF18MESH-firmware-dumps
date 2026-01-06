@@ -111,9 +111,9 @@ void loop() {
 
 Wiring
 ESP32	Router Serial
-GND	GND
-RX2 (GPIO16)	OUT
-TX2 (GPIO17)	IN
+GND-GND
+RX2(GPIO16)-OUT
+TX2(GPIO17)-IN
 
     OUT = Router TX
     IN = Router RX
