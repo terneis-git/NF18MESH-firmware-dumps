@@ -136,9 +136,7 @@ TX2(GPIO17)-IN
 
     Power on the router
 
-    Watch for:
-
-    Press any key to stop auto run
+    Watch for:  Press any key to stop auto run
 
     Press any key or Ctrl+C
 
@@ -156,7 +154,7 @@ Enter the password from the router sticker
 
 Once logged in, type:
 
-sh
+   sh 
 
 If successful, the prompt will change to:
 
