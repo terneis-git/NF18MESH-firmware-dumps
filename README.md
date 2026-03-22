@@ -54,7 +54,7 @@ mtd5: image_update
 
 This documents **my process**. Your board revision may differ.
 
-### 1️⃣ Finding the Serial Header
+### 1 Finding the Serial Header
 
 1. Remove the **four Phillips screws** from the back of the router.
 2. Slide the PCB out of the plastic shell.
@@ -67,7 +67,7 @@ IN OUT GND 3.3V
 
 ---
 
-### 2️⃣ Using an ESP32 as a USB-to-UART Adapter
+### 2 Using an ESP32 as a USB-to-UART Adapter
 
 I used a **generic ESP32-S3**, but most ESP32 boards will work.
 
@@ -118,7 +118,7 @@ TX2(GPIO17)-IN
     OUT = Router TX
     IN = Router RX
 
-3️⃣ Connecting to Serial
+3 Connecting to Serial
 
     Plug in the router
 
@@ -132,7 +132,7 @@ TX2(GPIO17)-IN
 
     You should see boot output
 
-4️⃣ Entering CFE
+4 Entering CFE
 
     Power on the router
 
@@ -142,7 +142,7 @@ TX2(GPIO17)-IN
 
     You should now be at the CFE prompt
 
-5️⃣ Getting a Root Shell (Normal Boot)
+5 Getting a Root Shell (Normal Boot)
 
     Allow the router to boot normally
 
@@ -161,6 +161,56 @@ If successful, the prompt will change to:
     #
 
 You now have a root shell.
+
+6 Extracting Firmware via USB
+
+This method uses a USB stick to safely copy router partitions from the NF18MESH.
+
+Requirements
+
+- Root access
+- USB stick formatted as FAT32
+- 256MB free on the USB
+
+Insert and Mount USB
+
+1. Insert the USB stick into the router’s USB port.
+2. Create a mount point and mount the USB:
+
+mkdir -p /mnt/usb
+mount /dev/sda1 /mnt/usb
+
+3. Verify the mount:
+
+df -h
+
+You should see `/mnt/usb` listed with available space.
+
+Dump Partitions
+
+**Root filesystem:**
+
+dd if=/dev/mtdblock0 of=/mnt/usb/rootfs.bin bs=1M
+
+**Data / config partition:**
+
+dd if=/dev/mtdblock1 of=/mnt/usb/data.bin bs=1M
+
+- `if=` → input partition (source)
+- `of=` → output file on USB
+- `bs=1M` → block size (faster copying)
+
+Verify the Dumps
+
+Check that files exist and look correct:
+
+ls -lh /mnt/usb
+
+Clean Up
+
+After copying is complete:
+
+umount /mnt/usb
 
 !!! License / Disclaimer !!!
 
