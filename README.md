@@ -1,7 +1,7 @@
 # NF18MESH Firmware Dumps
 
 **Device:** NF18MESH (Slingshot / ISP model)  
-**SoC:** Broadcom BMIPS4350 BCM63168****(dual-core)  
+**SoC:** Broadcom BMIPS4350 BCM63168 (dual-core)  
 **Bootloader:** CFE (accessible via serial)
 
 ## Overview
