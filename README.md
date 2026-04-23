@@ -132,6 +132,8 @@ TX2(GPIO17)-IN
 
     You should see boot output
 
+    alternatively you can use picom on linux or PuTTY on windows 
+    
 4 Entering CFE
 
     Power on the router
