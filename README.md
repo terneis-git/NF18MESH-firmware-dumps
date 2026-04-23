@@ -31,12 +31,12 @@ The purpose of this repo is **documentation, research, and analysis** of the dev
 
 ## Flash Layout
 
-mtd0: rootfs
-mtd1: rootfs_update
-mtd2: data
-mtd3: nvram
-mtd4: image
-mtd5: image_update
+mtd0: rootfs <br> 
+mtd1: rootfs_update <br> 
+mtd2: data <br> 
+mtd3: nvram <br> 
+mtd4: image <br> 
+mtd5: image_update <br> 
 
 
 ---
